@@ -1,0 +1,24 @@
+cmake_minimum_required(VERSION 3.8)
+project(simple_pkg)
+
+find_package(ament_cmake REQUIRED)
+find_package(rclpy REQUIRED)
+find_package(std_msgs REQUIRED)
+
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}
+  )
+
+install(
+  PROGRAMS
+    scripts/pub.py
+    scripts/sub.py
+    scripts/turtle_move.py
+    scripts/turtle_square.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
+ament_package()
